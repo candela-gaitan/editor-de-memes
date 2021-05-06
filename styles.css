@@ -1,0 +1,53 @@
+/* General */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;    
+}
+
+body {
+    flex-direction: column;
+    height: 100vw;
+}
+
+/* Header */
+
+header {
+    background-color: midnightblue;
+    width: 100vw;
+    height: 100px;
+    color: white;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
+
+nav {
+    flex-direction: row;
+    text-align: center;
+}
+
+li {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    text-decoration: none;
+    font-style: none;
+}
+
+/* Main */
+
+main {
+    flex-direction: column;
+    width: 70%;
+}
+
+/* Aside */
+
+aside {
+    width: 30%;
+    flex-direction: column;
+}
