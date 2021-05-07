@@ -7,15 +7,20 @@
 }
 
 body {
-    flex-direction: column;
-    height: 100vw;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 /* Header */
 
 header {
     background-color: midnightblue;
-    width: 100vw;
+    width: 100%;
     height: 100px;
     color: white;
     flex-direction: column;
@@ -41,13 +46,47 @@ li {
 /* Main */
 
 main {
+    width: 100%;
+    height: 100%;
+    background-color: #30343F;
+
+    display: flex;
     flex-direction: column;
-    width: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.blanco {
+    width: 400px;
+    height: 400px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.negro {
+    width: 400px;
+    height: 300px;
+    background-color: black;
+}
+
+.download {
+    width: max-content;
 }
 
 /* Aside */
 
 aside {
-    width: 30%;
+    position:fixed;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    background-color: #252935;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
