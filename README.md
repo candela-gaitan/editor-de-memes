@@ -1,3 +1,3 @@
 Editor de memes
 
-Trabajo realizado para el primer módulo del curso Fron End de Ada, HTML&CSS.
+Trabajo realizado para el segundo módulo del curso Fron End de Ada: Javascript.
