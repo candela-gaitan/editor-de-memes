@@ -12,7 +12,7 @@ span {
 }
 
 body {
-    /* overflow: hidden; */
+    overflow: hidden; 
     height: 100vh;
     width: 100vw;
 
@@ -67,12 +67,18 @@ li {
     padding: 7px;
     border-radius: 3px;
     font-size: 12px;
+    border-style: none;
+    background-color: transparent;
 }
 
 .nav-button:hover {
     transition-property: background-color;
     transition-duration: 200ms;
     background-color: #4e5565;
+}
+
+.nav-button:focus {
+    outline: 0;
 }
 
 /* Main */
@@ -140,25 +146,24 @@ aside {
     height: 100%;
     padding: 20px;
     background-color: #252935;
+    color: white;
     z-index: 10;
 
     display: flex;
     flex-direction: column;
 }
 
-#image-panel {
+#text-panel {
     display: none;
 }
 
 h3 {
     text-align: center;
-    color: white;
     margin-bottom: 20px;
     font-size: 18px;
 }
 
 h4 {
-    color: white;
     font-size: 12px;
     margin: 10px 0;
 }
@@ -219,6 +224,10 @@ select {
     outline: 0;
 }
 
+input[type='url'] {
+    width: 100%;
+}
+
 .range {
     width: 100%;
     background-color: #5a5d68;
@@ -261,7 +270,7 @@ textarea {
     width: 100%;
 }
 
-.text-button {
+.style-button {
     background-color: #393e49;
     color: white;
     border-style: none;
@@ -272,15 +281,19 @@ textarea {
     font-size: 14px;
 }
 
-.text-button:hover {
+.style-button:hover {
     transition-property: background-color;
     transition-duration: 200ms;
     background-color: #4e5565;
 }
 
-.text-button:focus {
+.style-button:focus {
     background-color: #4e5565;
     outline: 0;
+}
+
+#darkmode-button {
+    display: none;
 }
 
 .fonts-container {
