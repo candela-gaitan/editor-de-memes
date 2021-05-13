@@ -35,9 +35,9 @@
 
     <main id="main">
         <div class="image-container">
-            <h2 class="top-text">TOP TEXT</h2>
+            <h2 id="top-text">TOP TEXT</h2>
             <div id="meme-image"></div>
-            <h2 class="bottom-text">BOTTOM TEXT</h2>
+            <h2 id="bottom-text">BOTTOM TEXT</h2>
         </div>
 
         <button class="download-button"> <i class="fas fa-download"></i> Descargar meme</button>
@@ -107,29 +107,29 @@
         <section id="text-panel">
             <h3>TEXTO</h3>
             <h4>SUPERIOR</h4>
-            <textarea name="" id="" cols="30" rows="1" class="input-control">TOP TEXT</textarea>
+            <textarea name="" id="top-text-input" cols="30" rows="1" class="input-control">TOP TEXT</textarea>
             <div class="checkbox-container">
-                <input type="checkbox" id="no-top-text-checkbox">
+                <input type="checkbox" id="no-top-text-checkbox" onclick="noTopText()">
                 <label for="no-top-text-checkbox">Sin texto superior</label>
             </div>
             <h4>INFERIOR</h4>
-            <textarea name="" id="" cols="30" rows="1" class="input-control">BOTTOM TEXT</textarea>
+            <textarea name="" id="bottom-text-input" cols="30" rows="1" class="input-control">BOTTOM TEXT</textarea>
             <div class="checkbox-container">
-                <input type="checkbox" id="no-bottom-text-checkbox">
+                <input type="checkbox" id="no-bottom-text-checkbox" onclick="noBottomText()">
                 <label for="no-bottom-text-checkbox">Sin texto inferior</label>
             </div>
             
             <h4>FUENTE</h4>
-            <select class="input-control" name="" id="">
-                <option value="">Arial</option>
-                <option value="">Arial Black</option>
-                <option value="">American Typewriter</option>
-                <option value="">Andale Mono</option>
-                <option value="">Comic Sans MS</option>
-                <option value="">Helvetica</option>
-                <option value="">Impact</option>
-                <option value="">Verdana</option>
-                <option value="">Times New Roman</option>
+            <select class="input-control" name="" id="font-options" value="" onchange="selectFont()">
+                <option value="arial">Arial</option>
+                <option value="arialBlack">Arial Black</option>
+                <option value="american">American Typewriter</option>
+                <option value="andale">Andale Mono</option>
+                <option value="comicSans">Comic Sans MS</option>
+                <option value="helvetica">Helvetica</option>
+                <option value="impact">Impact</option>
+                <option value="verdana">Verdana</option>
+                <option value="TNR">Times New Roman</option>
             </select>
 
             <div class="fonts-container">
