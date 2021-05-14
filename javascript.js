@@ -205,6 +205,54 @@ darkOutline.addEventListener('click', () => {
     bottomText.style.textShadow = "rgb(0, 0, 0) 2px 2px, rgb(0, 0, 0) -2px 2px, rgb(0, 0, 0) 2px -2px, rgb(0, 0, 0) -2px -2px";
 })
 
+/* Espaciado VER CENTRADO Y PADDING */
+
+const textPadding = document.getElementById("text-padding");
+
+textPadding.addEventListener('input', () => {
+    topText.style.padding = `${textPadding.value}px`;
+    bottomText.style.padding = `${textPadding.value}px`;
+})
+
+/* Interlineado */
+
+const lineheightInput = document.getElementById("lineheight-input");
+
+const selectLineheight = () => {
+    if (lineheightInput.value == "0.8") {
+        topText.style.lineHeight = "0.8";
+        bottomText.style.lineHeight = "0.8";
+    } else if (lineheightInput.value == "1") {
+        topText.style.lineHeight = "1";
+        bottomText.style.lineHeight = "1";
+    } else if (lineheightInput.value == "1.2") {
+        topText.style.lineHeight = "1.2";
+        bottomText.style.lineHeight = "1.2";
+    } else if (lineheightInput.value == "1.5") {
+        topText.style.lineHeight = "1.5";
+        bottomText.style.lineHeight = "1.5";
+    } else if (lineheightInput.value == "2") {
+        topText.style.lineHeight = "2";
+        bottomText.style.lineHeight = "2";
+    } else if (lineheightInput.value == "2.5") {
+        topText.style.lineHeight = "2.5";
+        bottomText.style.lineHeight = "2.5";
+    }
+}
+
+selectLineheight();  
+
+/* PANEL DE IMAGEN */
+
+/* Cambio de imagen */
+
+const memeImage = document.getElementById("meme-image");
+const urlInput = document.getElementById("url-input");
+
+urlInput.addEventListener('input', () => {
+    memeImage.style.backgroundImage = `url(${urlInput.value})`;
+})
+
 
 
 
