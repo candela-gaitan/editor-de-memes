@@ -93,7 +93,7 @@ main {
     align-items: center;
 }
 
-.image-container {
+#image-container {
     width: 460px;
     height: 460px;
     background-color: white;
@@ -121,13 +121,13 @@ main {
     border-radius: 2px;
 }
 
-.top-text {
+#top-text {
     margin-bottom: 25px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 30px;
 }
 
-.bottom-text {
+#bottom-text {
     margin-top: 25px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 30px;

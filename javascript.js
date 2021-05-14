@@ -33,10 +33,12 @@ darkModeButton.addEventListener('click', () => {
     styleSheet.setAttribute('href', 'darkmode.css');
 })
 
-/* Panel de texto */
+/* PANEL DE TEXTO */
 
 const topText = document.getElementById("top-text");
 const topTextInput = document.getElementById("top-text-input");
+
+/* Cambio de texto */
 
 const topTextFunction = () => {
     topTextInput.addEventListener('input', () => {
@@ -57,6 +59,8 @@ const bottomTextFunction = () => {
 
 bottomTextFunction();
 
+/* Sacar texto */
+
 const topTextCheckbox = document.getElementById("no-top-text-checkbox");
 const bottomTextCheckbox = document.getElementById("no-bottom-text-checkbox");
 
@@ -75,6 +79,8 @@ const noBottomText = () => {
         bottomText.style.display = "block";
     }
 }
+
+/* Cambiar fuente VER HACERLO CON FONT FACE E IMPORTAR FUENTES */
 
 const fontOptions = document.getElementById("font-options");
 
@@ -110,5 +116,98 @@ const selectFont = () => {
 }
 
 selectFont();
+
+/* Cambiar tamaño de fuente */
+
+const textFontSize = document.getElementById("text-font-size");
+
+const changeFontSize = () => {
+    textFontSize.addEventListener('input', () => {
+        topText.style.fontSize = `${textFontSize.value}px`;
+        bottomText.style.fontSize = `${textFontSize.value}px`;
+    })
+
+}
+
+changeFontSize();
+
+/* Alineación */
+
+const leftAlign = document.getElementById('left-align-text');
+const centeredAlign = document.getElementById('centered-text');
+const rightAlign = document.getElementById('right-align-text');
+const imageContainer = document.getElementById('image-container');
+
+
+leftAlign.addEventListener('click', () => {
+    imageContainer.style.alignItems = 'flex-start';
+})
+
+centeredAlign.addEventListener('click', () => {
+    imageContainer.style.alignItems = 'center';
+})
+
+rightAlign.addEventListener('click', () => {
+    imageContainer.style.alignItems = 'flex-end';
+})
+
+/* Cambiar color texto */
+
+const colorInput = document.getElementById('color-input');
+const tagColorText = document.getElementById('color-text');
+
+colorInput.addEventListener('input', () => {
+    topText.style.color = colorInput.value;
+    bottomText.style.color = colorInput.value;
+    tagColorText.innerText = colorInput.value;
+})
+
+/* Cambiar color de fondo */
+
+const bgColorInput = document.getElementById('bg-color-input');
+const tagBgColorText = document.getElementById('bg-color-text');
+
+bgColorInput.addEventListener('input', () => {
+    imageContainer.style.backgroundColor = bgColorInput.value;
+    tagBgColorText.innerText = bgColorInput.value;
+})
+
+/* Fondo transparente */
+
+const bgTransparentCheckbox = document.getElementById("bg-transparent-checkbox");
+
+const bgTransparent = () => {
+    if (bgTransparentCheckbox.checked === true) {
+        imageContainer.style.backgroundColor = "transparent";
+    } else {
+        imageContainer.style.backgroundColor = bgColorInput.value;
+    }
+}
+
+/* Contorno */
+
+const noOutline = document.getElementById('no-outline');
+const lightOutline = document.getElementById('light-outline');
+const darkOutline = document.getElementById('dark-outline');
+
+noOutline.addEventListener('click', () => {
+    topText.style.textShadow = "none";
+    bottomText.style.textShadow = "none";
+})
+
+lightOutline.addEventListener('click', () => {
+    topText.style.textShadow = "rgb(255, 255, 255) 2px 2px, rgb(255, 255, 255) -2px 2px, rgb(255, 255, 255) 2px -2px, rgb(255, 255, 255) -2px -2px";
+    bottomText.style.textShadow = "rgb(255, 255, 255) 2px 2px, rgb(255, 255, 255) -2px 2px, rgb(255, 255, 255) 2px -2px, rgb(255, 255, 255) -2px -2px";
+})
+
+darkOutline.addEventListener('click', () => {
+    topText.style.textShadow = "rgb(0, 0, 0) 2px 2px, rgb(0, 0, 0) -2px 2px, rgb(0, 0, 0) 2px -2px, rgb(0, 0, 0) -2px -2px";
+    bottomText.style.textShadow = "rgb(0, 0, 0) 2px 2px, rgb(0, 0, 0) -2px 2px, rgb(0, 0, 0) 2px -2px, rgb(0, 0, 0) -2px -2px";
+})
+
+
+
+
+
 
 

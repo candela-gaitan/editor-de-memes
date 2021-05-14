@@ -34,7 +34,7 @@
     </header>
 
     <main id="main">
-        <div class="image-container">
+        <div id="image-container">
             <h2 id="top-text">TOP TEXT</h2>
             <div id="meme-image"></div>
             <h2 id="bottom-text">BOTTOM TEXT</h2>
@@ -57,7 +57,7 @@
             <div class="bgfilters-container">
                 <div class="color-container input-control">
                     <input class="input-control" type="color" value="#FFFFFF">
-                    <span id="color-text">#FFFFFF</span>
+                    <span id="color-image">#FFFFFF</span>
                 </div>
             
                 <div class="select-container">
@@ -145,24 +145,29 @@
                 <div class="flex-column">
                     <h4>COLOR</h4>
                     <div class="txt-color-container input-control">
-                        <input class="input-control" type="color" value="#000000">
+                        <input class="input-control" type="color" value="#000000" id="color-input">
                         <span id="color-text">#000000</span>
                     </div>
                 </div>
                 <div class="flex-column">
                     <h4>FONDO</h4>
                     <div class="bg-color-container input-control">
-                        <input class="input-control" type="color" value="#FFFFFF">
-                        <span id="color-text">#FFFFFF</span>
+                        <input class="input-control" type="color" value="#FFFFFF" id="bg-color-input">
+                        <span id="bg-color-text">#FFFFFF</span>
                     </div>
                 </div>
-            </div> 
-
+            </div>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="bg-transparent-checkbox" onclick="bgTransparent()">
+                <label for="bg-transparent-checkbox">Fondo transparente</label>
+            </div>
+            
             <h4>CONTORNO</h4>
             <div class="outline-container">
-                <button class="style-button">Ninguno</button>
-                <button class="style-button">Claro</button>
-                <button class="style-button">Oscuro</button>
+                <button class="style-button" id="no-outline">Ninguno</button>
+                <button class="style-button" id="light-outline">Claro</button>
+                <button class="style-button" id="dark-outline">Oscuro</button>
             </div>
 
             <h4>ESPACIADO</h4>
