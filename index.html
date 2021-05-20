@@ -56,52 +56,56 @@
 
             <div class="bgfilters-container">
                 <div class="color-container input-control">
-                    <input class="input-control" type="color" value="#FFFFFF">
-                    <span id="color-image">#FFFFFF</span>
+                    <input id="bg-meme-input" class="input-control" type="color" value="#FFFFFF">
+                    <span id="color-meme">#FFFFFF</span>
                 </div>
             
                 <div class="select-container">
-                    <select class="input-control" name="" id="">
-                        <option value="">Ninguno</option>
-                        <option value="">Aclarar</option>
-                        <option value="">Oscurecer</option>
-                        <option value="">Diferencia</option>
-                        <option value="">Luminosidad</option>
-                        <option value="">Multiplicar</option>
+                    <select class="input-control" name="" id="bg-blend-mode" onchange="selectBgBlendMode()">
+                        <option value="unset">Ninguno</option>
+                        <option value="lighten">Aclarar</option>
+                        <option value="darken">Oscurecer</option>
+                        <option value="difference">Diferencia</option>
+                        <option value="luminosity">Luminosidad</option>
+                        <option value="multiply">Multiplicar</option>
                     </select>
                 </div>
             </div>
 
             <h4>FILTROS</h4>
 
-            <label for="">BRILLO</label>
-            <input class="range" type="range" min="0" max="1" value="1" step="0.1">
+            <form action="">
 
-            <label for="">OPACIDAD</label>
-            <input class="range" type="range" min="0" max="1" value="1" step="0.1">
+                <label for="">BRILLO</label>
+                <input id="brightness-range" class="range" type="range" min="0" max="1" value="1" step="0.1">
 
-            <label for="">CONTRASTE</label>
-            <input class="range" type="range" min="0" max="1" value="0" step="0.1">
+                <label for="">OPACIDAD</label>
+                <input id="opacity-range" class="range" type="range" min="0" max="1" value="1" step="0.1">
 
-            <label for="">DESENFOQUE</label>
-            <input class="range" type="range" min="0" max="1" value="0" step="0.1">
+                <label for="">CONTRASTE</label>
+                <input id="contrast-range" class="range" type="range" min="100" max="1000" value="100">
 
-            <label for="">ESCALA DE GRISES</label>
-            <input class="range" type="range" min="0" max="1" value="0" step="0.1">
+                <label for="">DESENFOQUE</label>
+                <input id="blur-range" class="range" type="range" min="0" max="10" value="0" step="0.1">
 
-            <label for="">SEPIA</label>
-            <input class="range" type="range" min="0" max="1" value="0" step="0.1">
+                <label for="">ESCALA DE GRISES</label>
+                <input id="grayscale-range" class="range" type="range" min="0" max="100" value="0">
 
-            <label for="">HUE</label>
-            <input class="range" type="range" min="0" max="1" value="0" step="0.1">
+                <label for="">SEPIA</label>
+                <input id="sepia-range" class="range" type="range" min="0" max="100" value="0">
 
-            <label for="">SATURADO</label>
-            <input class="range" type="range" min="0" max="1" value="0" step="0.1">
+                <label for="">HUE</label>
+                <input id="hue-rotate-range" class="range" type="range" min="0" max="360" value="0">
 
-            <label for="">NEGATIVO</label>
-            <input class="range" type="range" min="0" max="1" value="0" step="0.1">
+                <label for="">SATURADO</label>
+                <input id="saturate-range" class="range" type="range" min="100" max="1000" value="100" step="10">
 
-            <button class="reset">Reestablecer filtros</button>
+                <label for="">NEGATIVO</label>
+                <input id="invert-range" class="range" type="range" min="0" max="1" value="0" step="0.1">
+
+                <button id="reset-button" class="reset" type="reset">Reestablecer filtros</button>
+
+            </form>
         </section>
 
         <section id="text-panel">

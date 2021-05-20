@@ -140,15 +140,18 @@ const imageContainer = document.getElementById('image-container');
 
 
 leftAlign.addEventListener('click', () => {
-    imageContainer.style.alignItems = 'flex-start';
+    topText.style.textAlign = 'left';
+    bottomText.style.textAlign = 'left';
 })
 
 centeredAlign.addEventListener('click', () => {
-    imageContainer.style.alignItems = 'center';
+    topText.style.textAlign = 'center';
+    bottomText.style.textAlign = 'center';
 })
 
 rightAlign.addEventListener('click', () => {
-    imageContainer.style.alignItems = 'flex-end';
+    topText.style.textAlign = 'right';
+    bottomText.style.textAlign = 'right';
 })
 
 /* Cambiar color texto */
@@ -168,7 +171,8 @@ const bgColorInput = document.getElementById('bg-color-input');
 const tagBgColorText = document.getElementById('bg-color-text');
 
 bgColorInput.addEventListener('input', () => {
-    imageContainer.style.backgroundColor = bgColorInput.value;
+    topText.style.backgroundColor = bgColorInput.value;
+    bottomText.style.backgroundColor = bgColorInput.value;
     tagBgColorText.innerText = bgColorInput.value;
 })
 
@@ -178,9 +182,11 @@ const bgTransparentCheckbox = document.getElementById("bg-transparent-checkbox")
 
 const bgTransparent = () => {
     if (bgTransparentCheckbox.checked === true) {
-        imageContainer.style.backgroundColor = "transparent";
+        topText.style.backgroundColor = "transparent";
+        bottomText.style.backgroundColor = "transparent";
     } else {
-        imageContainer.style.backgroundColor = bgColorInput.value;
+        topText.style.backgroundColor = bgColorInput.value;
+        bottomText.style.backgroundColor = bgColorInput.value;
     }
 }
 
@@ -253,9 +259,73 @@ urlInput.addEventListener('input', () => {
     memeImage.style.backgroundImage = `url(${urlInput.value})`;
 })
 
+/* Cambio de fondo */
 
+const bgMemeInput = document.getElementById('bg-meme-input');
+const colorMeme = document.getElementById('color-meme');
 
+bgMemeInput.addEventListener('input', () => {
+    memeImage.style.backgroundColor = bgMemeInput.value;
+    colorMeme.innerText = bgMemeInput.value;
+})
 
+/* Background Blend Mode */
+
+const bgBlendModeInput = document.getElementById('bg-blend-mode');
+
+const selectBgBlendMode = () => {
+    if (bgBlendModeInput.value == "unset") {
+        memeImage.style.backgroundBlendMode = "unset";
+    } else if (bgBlendModeInput.value == "lighten") {
+        memeImage.style.backgroundBlendMode = "lighten";
+    } else if (bgBlendModeInput.value == "darken") {
+        memeImage.style.backgroundBlendMode = "darken";
+    } else if (bgBlendModeInput.value == "difference") {
+        memeImage.style.backgroundBlendMode = "difference";
+    } else if (bgBlendModeInput.value == "luminosity") {
+        memeImage.style.backgroundBlendMode = "luminosity";
+    } else if (bgBlendModeInput.value == "multiply") {
+        memeImage.style.backgroundBlendMode = "multiply";
+    }
+}
+
+selectBgBlendMode(); 
+
+/* Filtros */
+
+const brightnessRange = document.getElementById('brightness-range');
+const opacityRange = document.getElementById('opacity-range');
+const blurRange = document.getElementById('blur-range');
+const contrastRange = document.getElementById('contrast-range');
+const grayscaleRange = document.getElementById('grayscale-range');
+const hueRotateRange = document.getElementById('hue-rotate-range');
+const sepiaRange = document.getElementById('sepia-range');
+const saturateRange = document.getElementById('saturate-range');
+const invertRange = document.getElementById('invert-range'); 
+
+const changeFilters = () => {
+    memeImage.style.filter = `brightness(${brightnessRange.value}) opacity(${opacityRange.value}) contrast(${contrastRange.value}%) blur(${blurRange.value}px) grayscale(${grayscaleRange.value}%) hue-rotate(${hueRotateRange.value}deg) sepia(${sepiaRange.value}%) saturate(${saturateRange.value}%) invert(${invertRange.value})`;
+}
+
+brightnessRange.addEventListener('input', changeFilters);
+opacityRange.addEventListener('input', changeFilters);
+contrastRange.addEventListener('input', changeFilters);
+blurRange.addEventListener('input', changeFilters);
+grayscaleRange.addEventListener('input', changeFilters);
+hueRotateRange.addEventListener('input', changeFilters);
+sepiaRange.addEventListener('input', changeFilters);
+saturateRange.addEventListener('input', changeFilters);
+invertRange.addEventListener('input', changeFilters);
+
+changeFilters();
+
+/* Reestablecer filtros */
+
+const resetButton = document.getElementById('reset-button');
+
+resetButton.addEventListener('click', () => {
+    memeImage.style.filter = "none";
+}) 
 
 
 
