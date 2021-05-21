@@ -4,13 +4,16 @@ const imagePanelButton = document.getElementById("image-panel-button");
 const textPanelButton = document.getElementById("text-panel-button");
 const imagePanel = document.getElementById("image-panel");
 const textPanel = document.getElementById('text-panel');
+const aside = document.getElementById('aside');
 
 textPanelButton.addEventListener('click', () => {
+    aside.style.display = "block";
     imagePanel.style.display = "none";
     textPanel.style.display = "block";
 })
 
 imagePanelButton.addEventListener('click', () => {
+    aside.style.display = "block";
     textPanel.style.display = "none";
     imagePanel.style.display = "block";
 })
@@ -72,6 +75,8 @@ const noTopText = () => {
     }
 }
 
+topTextCheckbox.addEventListener('click', noTopText);
+
 const noBottomText = () => {
     if (bottomTextCheckbox.checked === true) {
         bottomText.style.display = "none";
@@ -80,7 +85,9 @@ const noBottomText = () => {
     }
 }
 
-/* Cambiar fuente VER HACERLO CON FONT FACE E IMPORTAR FUENTES */
+bottomTextCheckbox.addEventListener('click', noBottomText);
+
+/* Cambiar fuente */
 
 const fontOptions = document.getElementById("font-options");
 
@@ -98,8 +105,8 @@ const selectFont = () => {
         topText.style.fontFamily = "Andale Mono";
         bottomText.style.fontFamily = "Andale Mono";
     } else if (fontOptions.value == "comicSans") {
-        topText.style.fontFamily = "Comic Sans MS";
-        bottomText.style.fontFamily = "Comic Sans MS";
+        topText.style.fontFamily = "Comic Sans";
+        bottomText.style.fontFamily = "Comic Sans";
     } else if (fontOptions.value == "helvetica") {
         topText.style.fontFamily = "Helvetica";
         bottomText.style.fontFamily = "Helvetica";
@@ -115,7 +122,7 @@ const selectFont = () => {
     }
 }
 
-selectFont();
+fontOptions.addEventListener('change', selectFont);
 
 /* Cambiar tamaño de fuente */
 
@@ -184,11 +191,20 @@ const bgTransparent = () => {
     if (bgTransparentCheckbox.checked === true) {
         topText.style.backgroundColor = "transparent";
         bottomText.style.backgroundColor = "transparent";
+        topText.style.position = "absolute";
+        bottomText.style.position = "absolute";
+        topText.style.top = "0";
+        bottomText.style.bottom = "0";
+        topText.style.zIndex = "10000";
     } else {
         topText.style.backgroundColor = bgColorInput.value;
         bottomText.style.backgroundColor = bgColorInput.value;
+        topText.style.position = "static";
+        bottomText.style.position = "static";
     }
 }
+
+bgTransparentCheckbox.addEventListener('click', bgTransparent);
 
 /* Contorno */
 
@@ -211,7 +227,7 @@ darkOutline.addEventListener('click', () => {
     bottomText.style.textShadow = "rgb(0, 0, 0) 2px 2px, rgb(0, 0, 0) -2px 2px, rgb(0, 0, 0) 2px -2px, rgb(0, 0, 0) -2px -2px";
 })
 
-/* Espaciado VER CENTRADO Y PADDING */
+/* Espaciado */
 
 const textPadding = document.getElementById("text-padding");
 
@@ -246,7 +262,7 @@ const selectLineheight = () => {
     }
 }
 
-selectLineheight();  
+lineheightInput.addEventListener('change', selectLineheight); 
 
 /* PANEL DE IMAGEN */
 
@@ -289,7 +305,7 @@ const selectBgBlendMode = () => {
     }
 }
 
-selectBgBlendMode(); 
+bgBlendModeInput.addEventListener('click', selectBgBlendMode);
 
 /* Filtros */
 
@@ -325,7 +341,27 @@ const resetButton = document.getElementById('reset-button');
 
 resetButton.addEventListener('click', () => {
     memeImage.style.filter = "none";
-}) 
+})
+
+/* Descarga de imagen */
+
+const downloadButton = document.getElementById('download');
+
+downloadButton.addEventListener('click', () => {
+    domtoimage.toBlob(imageContainer) 
+    .then(function (blob) {
+        window.saveAs(blob, 'meme.png');
+    });
+})
+
+/* Cerrar panel */
+
+const closeAside = document.getElementById('close-aside');
+
+closeAside.addEventListener('click', () => {
+    aside.style.display = "none";
+})
+
 
 
 

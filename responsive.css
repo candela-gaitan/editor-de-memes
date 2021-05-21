@@ -1,0 +1,23 @@
+@media screen and (max-width: 1300px) {
+    aside {
+        display: none;
+    }
+
+    #close-aside {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    aside {
+        display: none;
+        width: 100%;
+    }
+
+    #close-aside {
+        display: block;
+    }
+}
+
+
+

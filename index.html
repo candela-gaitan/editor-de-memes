@@ -6,10 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Estilos -->
     <link id="style-sheet" rel="stylesheet" href="darkmode.css">
+    <link rel="stylesheet" href="responsive.css">
     <title>Generador de Memes</title>
     <!-- Fuentes -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            src: local('Open Sans'), url(assets/fonts/OpenSans-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: 'Arial';
+            src: local('Arial'), url(assets/fonts/arial.ttf);
+        }
+
+        @font-face {
+            font-family: 'Arial Black';
+            src: local('Arial Black'), url(assets/fonts/ariblk.ttf);
+        }
+
+        @font-face {
+            font-family: 'American Typewriter';
+            src: local('American Typewriter'), url(assets/fonts/American\ Typewriter\ Regular.ttf);
+        }
+
+        @font-face {
+            font-family: 'Andale Mono';
+            src: local('Andale Mono'), url(assets/fonts/andalemo.ttf);
+        }
+
+        @font-face {
+            font-family: 'Comic Sans';
+            src: local('Comic Sans'), url(assets/fonts/comic.ttf);
+        }
+
+        @font-face {
+            font-family: 'Helvetica';
+            src: local('Helvetica'), url(assets/fonts/HelveticaNeueLTStdEx.otf);
+        }
+
+        @font-face {
+            font-family: 'Impact';
+            src: local('Impact'), url(assets/fonts/impact.ttf);
+        }
+
+        @font-face {
+            font-family: 'Verdana';
+            src: local('Verdana'), url(assets/fonts/verdana.ttf);
+        }
+
+        @font-face {
+            font-family: 'Times New Roman';
+            src: local('Times New Roman'), url(assets/fonts/times.ttf);
+        }
+    </style>
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css">
@@ -40,11 +90,15 @@
             <h2 id="bottom-text">BOTTOM TEXT</h2>
         </div>
 
-        <button class="download-button"> <i class="fas fa-download"></i> Descargar meme</button>
+        <button id="download" class="download-button"> <i class="fas fa-download"></i> Descargar meme</button>
     </main>
 
      
     <aside id="aside">
+
+        <div class="close-button-container">
+            <button id="close-aside"><i class="fas fa-times"></i></button>
+        </div> 
 
         <section id="image-panel">
             <h3>IMAGEN</h3>
@@ -61,7 +115,7 @@
                 </div>
             
                 <div class="select-container">
-                    <select class="input-control" name="" id="bg-blend-mode" onchange="selectBgBlendMode()">
+                    <select class="input-control" name="" id="bg-blend-mode">
                         <option value="unset">Ninguno</option>
                         <option value="lighten">Aclarar</option>
                         <option value="darken">Oscurecer</option>
@@ -113,18 +167,18 @@
             <h4>SUPERIOR</h4>
             <textarea name="" id="top-text-input" cols="30" rows="1" class="input-control">TOP TEXT</textarea>
             <div class="checkbox-container">
-                <input type="checkbox" id="no-top-text-checkbox" onclick="noTopText()">
+                <input type="checkbox" id="no-top-text-checkbox" >
                 <label for="no-top-text-checkbox">Sin texto superior</label>
             </div>
             <h4>INFERIOR</h4>
             <textarea name="" id="bottom-text-input" cols="30" rows="1" class="input-control">BOTTOM TEXT</textarea>
             <div class="checkbox-container">
-                <input type="checkbox" id="no-bottom-text-checkbox" onclick="noBottomText()">
+                <input type="checkbox" id="no-bottom-text-checkbox">
                 <label for="no-bottom-text-checkbox">Sin texto inferior</label>
             </div>
             
             <h4>FUENTE</h4>
-            <select class="input-control" name="" id="font-options" value="" onchange="selectFont()">
+            <select class="input-control" name="" id="font-options" value="impact">
                 <option value="arial">Arial</option>
                 <option value="arialBlack">Arial Black</option>
                 <option value="american">American Typewriter</option>
@@ -163,7 +217,7 @@
             </div>
             
             <div class="checkbox-container">
-                <input type="checkbox" id="bg-transparent-checkbox" onclick="bgTransparent()">
+                <input type="checkbox" id="bg-transparent-checkbox">
                 <label for="bg-transparent-checkbox">Fondo transparente</label>
             </div>
             
@@ -178,19 +232,21 @@
             <input type="number" class="input-control" min="10" max="50" value="35" id="text-padding">
 
             <h4>INTERLINEADO</h4>
-            <select class="input-control" name="" id="lineheight-input" onchange="selectLineheight()">
+            <select class="input-control" name="" id="lineheight-input">
                 <option value="0.8">0.8</option>
                 <option value="1">1</option>
                 <option value="1.2">1.2</option>
                 <option value="1.5">1.5</option>
                 <option value="2">2</option>
-                <option value="1.5">2.5</option>
+                <option value="2.5">2.5</option>
             </select>
 
         </section>
 
     </aside>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="javascript.js"></script>
 </body>
 </html>
