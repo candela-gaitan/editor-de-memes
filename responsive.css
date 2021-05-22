@@ -1,3 +1,5 @@
+/* BREAKPOINT 1300px: aside desaparece y puede abrirse y cerrarse con botones */
+
 @media screen and (max-width: 1300px) {
     aside {
         width: 30%;
@@ -13,6 +15,8 @@
     }
 }
 
+/* BREAKPOINT 700px: aside ocupa 100%. Desaparece y puede abrirse y cerrarse con botones */
+
 @media screen and (max-width: 700px) {
     aside {
         display: none;
@@ -27,6 +31,8 @@
         width: 32%;
     }
 }
+
+/* BREAKPOINTS cambio de ancho de imagen */
 
 @media screen and (max-width: 500px) {
     #image-container {

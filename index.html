@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Información meta -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Estilos -->
     <link id="style-sheet" rel="stylesheet" href="darkmode.css">
     <link rel="stylesheet" href="responsive.css">
+    <!-- Título -->
     <title>Generador de Memes</title>
     <!-- Fuentes -->
     <style>
@@ -71,6 +73,8 @@
 </head>
 
 <body>
+
+    <!-- COMIENZO DE HEADER -->    
     <header id="header">
         <h1>Generador de Memes</h1>
         <nav>
@@ -82,7 +86,9 @@
             </ul>
         </nav>
     </header>
+    <!-- FIN DE HEADER --> 
 
+    <!-- COMIENZO DE MAIN --> 
     <main id="main">
         <div id="image-container" title="Imagen de Meme">
             <h2 id="top-text">TOP TEXT</h2>
@@ -92,14 +98,17 @@
 
         <button id="download" class="download-button"> <i class="fas fa-download" aria-hidden="true"></i> Descargar meme</button>
     </main>
-
+    <!-- FIN DE MAIN --> 
      
+    <!-- COMIENZO DE ASIDE --> 
     <aside id="aside">
 
+        <!-- Botón de cierre -->
         <div class="close-button-container">
             <button id="close-aside" aria-label="Botón cerrar panel"><i class="fas fa-times" aria-hidden="true"></i></button>
         </div> 
 
+        <!-- Panel de imagen -->
         <section id="image-panel">
             <form action="">
                 <h3>IMAGEN</h3>
@@ -161,14 +170,16 @@
                     <button id="reset-button" class="reset" type="reset">Reestablecer filtros</button>
             </form>
         </section>
+        <!-- Fin de panel de imagen --> 
 
+        <!-- Panel de texto -->
         <section id="text-panel">
-            <form action="">
+            <form>
                 <h3>TEXTO</h3>
                 <h4>SUPERIOR</h4>
                 <textarea name="" id="top-text-input" cols="30" rows="1" class="input-control" title="Introducir texto superior">TOP TEXT</textarea>
                 <div class="checkbox-container">
-                    <input type="checkbox" id="no-top-text-checkbox" >
+                    <input type="checkbox" id="no-top-text-checkbox">
                     <label for="no-top-text-checkbox">Sin texto superior</label>
                 </div>
                 <h4>INFERIOR</h4>
@@ -194,9 +205,9 @@
                 <div class="fonts-container">
                     <input type="number" class="input-control" min="12" value="30" id="text-font-size" title="Introducir tamaño de texto">
                     <div class="text-align-container">
-                        <button class="style-button" id="left-align-text" aria-label="Botón alinear texto izquierda"><i class="fas fa-align-left" aria-hidden="true"></i></button>
-                        <button class="style-button" id="centered-text" aria-label="Botón alinear texto centro"><i class="fas fa-align-center" aria-hidden="true"></i></button>
-                        <button class="style-button" id="right-align-text" aria-label="Botón alinear texto derecha"><i class="fas fa-align-right" aria-hidden="true"></i></button>
+                        <button class="style-button" id="left-align-text" aria-label="Botón alinear texto izquierda" type="button"><i class="fas fa-align-left" aria-hidden="true"></i></button>
+                        <button class="style-button" id="centered-text" aria-label="Botón alinear texto centro" type="button"><i class="fas fa-align-center" aria-hidden="true"></i></button>
+                        <button class="style-button" id="right-align-text" aria-label="Botón alinear texto derecha" type="button"><i class="fas fa-align-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
 
@@ -224,9 +235,9 @@
                 
                 <h4>CONTORNO</h4>
                 <div class="outline-container">
-                    <button class="style-button" id="no-outline">Ninguno</button>
-                    <button class="style-button" id="light-outline">Claro</button>
-                    <button class="style-button not" id="dark-outline">Oscuro</button>
+                    <button class="style-button" id="no-outline" type="button">Ninguno</button>
+                    <button class="style-button" id="light-outline" type="button">Claro</button>
+                    <button class="style-button not" id="dark-outline" type="button">Oscuro</button>
                 </div>
 
                 <h4>ESPACIADO</h4>
@@ -243,9 +254,13 @@
                 </select>
             </form>
         </section>
+        <!-- Fin de panel de texto --> 
 
     </aside>
+    <!-- FIN DE ASIDE --> 
     
+
+    <!-- SCRIPTS --> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="javascript.js"></script>
