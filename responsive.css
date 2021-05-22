@@ -1,10 +1,15 @@
 @media screen and (max-width: 1300px) {
     aside {
+        width: 30%;
         display: none;
     }
 
     #close-aside {
         display: block;
+    }
+
+    .style-button {
+        width: 32%;
     }
 }
 
@@ -17,7 +22,22 @@
     #close-aside {
         display: block;
     }
+
+    .style-button {
+        width: 32%;
+    }
 }
 
+@media screen and (max-width: 500px) {
+    #image-container {
+        width: 360px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #image-container {
+        width: 300px;
+    }
+}
 
 
