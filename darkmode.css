@@ -112,6 +112,9 @@ li {
 
 .nav-button:focus {
     outline: 0;
+    transition-property: background-color;
+    transition-duration: 200ms;
+    background-color: #4e5565;
 }
 
 #darkmode-button {
@@ -191,6 +194,14 @@ main {
     transition-duration: 250ms;
     background-color: #1b5e20;
 }
+
+.download-button:focus {
+    outline: 0;
+    transition-property: background-color;
+    transition-duration: 250ms;
+    background-color: #1b5e20;
+}
+
 
 /* ASIDE */
 
@@ -400,6 +411,13 @@ input[type='checkbox'] {
 }
 
 .reset:hover {
+    transition-property: background-color;
+    transition-duration: 200ms;
+    background-color: #4e5565;
+}
+
+.reset:focus {
+    outline: 0;
     transition-property: background-color;
     transition-duration: 200ms;
     background-color: #4e5565;
