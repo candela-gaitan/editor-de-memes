@@ -13,6 +13,10 @@
     .style-button {
         width: 32%;
     }
+
+    body {
+        overflow: scroll;
+    }
 }
 
 /* BREAKPOINT 700px: aside ocupa 100%. Desaparece y puede abrirse y cerrarse con botones */
